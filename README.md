@@ -1,6 +1,8 @@
 # music-app
 this is an app which lists favourite music for users
 
+## user story
+As a curious music fan, I want to find new music, so I can expand my music taste.
 
 ## start page
 starting page of index.html
