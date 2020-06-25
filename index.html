@@ -1,11 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>music-app</title>
+
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Assets/css/style.css">
+
 </head>
+
 <body>
-    <h1>Hello Music app</h1>
+    <main class="grid-container">
+        <!-- Start of heading part which shows text and timer -->
+        <div class="grid-x hide" id="header">
+            <h2 class="cell small-6" id="appTitle">App title</h2>
+            <h2 class="cell small-6" id="appSubTitle">App Subtitle</h2>
+        </div>
+
+        <!-- Inital playButton to start game -->
+        <div class="grid-x align-center-middle" id="initialPage">
+            <p class="cell text-center" id="description">Your choice of music begins with start button</p>
+            <button type="button" class="button rounded large" id="startButton">
+                <!-- Screen readers will see "close" -->
+                <span class="show-for-sr">Start</span>
+                <!-- Visual users -->
+                Start
+            </button>
+        </div>
+
+
+          <div class="panel callout radius hide">
+        <form class="">
+            <legend>Select Country
+                <select>
+                    <option value="All">All</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Newzealand">New Zealand</option>
+                    <option value="China">China</option>
+                    <option value="Japan">Japan</option>
+                    <option value="India">India</option>
+
+                </select>
+            </legend>
+
+            <legend>Type here for any song :
+                <input type="text" placeholder="enter your text">
+            </legend>
+           
+                <div class="row">
+                    <fieldset class="small-6 columns">
+                        <legend>Your Favorite Type of Songs?</legend>
+
+                        <input type="radio" name="Type" value="Metal">
+                        <label for="metalType">Metal</label>
+
+                        <input type="radio" name="Type" value="Classic">
+                        <label for="classicType">Classic</label>
+                    </fieldset>
+
+                    <fieldset class="small-6 columns">
+                        <legend>Filter</legend>
+                        <input id="checkbox1" type="checkbox">
+                        <label for="checkbox1">popularity</label>
+
+                        <input id="checkbox2" type="checkbox">
+                        <label for="checkbox2">ratings</label>
+                    </fieldset>
+                </div>
+
+                <div class="input-group">
+                    <a class="input-group-button button" id="submitButton">Submit</a>
+                </div>
+        </form>
+        </div>
+        <div class="flex-video hide grid-x align-center-middle">
+            <iframe width="200" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY" id="musicVideo"></iframe>
+        </div>
+       
+    </main>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+    <script src="./Assets/js/script.js"></script>
+
 </body>
+
 </html>
