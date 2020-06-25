@@ -1,0 +1,17 @@
+*{box-sizing: border-box;padding: 0px;margin: 0px;}
+
+body{background:#ADD8E6;font-size: 30px;}
+
+p{font-family: 'Poly',cursive, Arial, sans-serif;}
+
+#initialPage{
+    margin-top: 200px;
+}
+
+#header{
+margin-top: 6px;
+background: black;
+color:white;
+height: 100px;
+}
+
