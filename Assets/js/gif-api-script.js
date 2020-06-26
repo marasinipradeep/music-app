@@ -4,7 +4,9 @@ var musicStyle = [
   "music-metal",
   "piano-music",
 ];
+
 // Tenor gif api
+
 var APIKey = "ZFKX4SZGA5FO";
 queryURL =
   "https://api.tenor.com/v1/search?q=" +
