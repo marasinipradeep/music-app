@@ -10,7 +10,7 @@ var musicStyle = [
 var APIKey = "ZFKX4SZGA5FO";
 queryURL =
   "https://api.tenor.com/v1/search?q=" +
-  musicStyle[Math.floor(Math.random() * 4)] +
+  musicStyle[Math.floor(Math.random() * (musicStyle.length +1))] +
   "&key=ZFKX4SZGA5FO&limit=1";
 
   // This is Giphy gif api, not that accurate, could be spare api
