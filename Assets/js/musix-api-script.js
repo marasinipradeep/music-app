@@ -4,24 +4,7 @@ var artist;
 
 // QUESTION 1
 // click on country -US
-var country = "US";
-
-
-function getCountry(country, artist_id, related_artist_id, album_id) {
-    // user selected option
-
-    return country
-}
-
-function getArtist(artist) {
-
-}
-function getRelatedArtist(artist) {
-
-}
-function getArtist(artist) {
-
-}
+var country = "AU";
 
 // QUESTION 2 - display popular artists from country
 var chartQuery = `chart.artists.get?page=1&page_size=4&country=${country}`;
@@ -35,8 +18,8 @@ $.ajax({
 }).then(function (music) {
     for (let i = 0; i < 4; i++) {
         console.log("q2");
-        console.log(music.message.body.artist_list[i].artist.artist_name);
-        console.log(music.message.body.artist_list[i].artist.artist_id);
+        console.log("HERE " + music.message.body.artist_list[i].artist.artist_name);
+        console.log("HERE " + music.message.body.artist_list[i].artist.artist_id);
         addArtist(music.message.body.artist_list[i].artist.artist_id);
     }
 });
@@ -46,7 +29,7 @@ $.ajax({
 
 // QUESTION 3
 // click on related artist from popular artist -artist_id
-var artist_id = 27082035;
+var artist_id = 37843472;
 
 var chartQuery = `artist.related.get?artist_id=${artist_id}&page_size=4&page=1`;
 
