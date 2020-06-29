@@ -1,6 +1,7 @@
 //giphy
 //emVJkP2qAM1mr95yGqEgW0VXJHEfbTbO
 
+
 // counter to determine which question to show
 var counter = 0;
 
@@ -8,9 +9,11 @@ var counter = 0;
 var choice = "";
 
 // ????
+
 init()
 function init() {
 }
+
 
 
 // header
@@ -19,6 +22,7 @@ function musicAppHeading() {
     $("#header #appSubTitle").text(moment().format('dddd, MMMM Do'))
 
 }
+
 
 // question objs, holding question, options and their respective values
 // q1
@@ -69,6 +73,7 @@ var savedArrayOfChoices = []
 
 // when start button is clicked add and remove a bunch of classes
 // fix up later
+
 function onStartButtonClicked() {
     $("#description").addClass("hide");
     $("#startButton").addClass("hide");
@@ -87,6 +92,7 @@ function onStartButtonClicked() {
 }
 
 
+
 // shows the current question in relation to counter
 // works not sure how but it do
 function showQuestion(counter) {
@@ -96,10 +102,12 @@ function showQuestion(counter) {
 
     // console.log(arrayOfQuestions[counter].Question);
 
+
     var newLegend = $("<legend>").text(arrayOfQuestions[counter].Question)
     newDiv.append(newLegend, newFieldSet)
     $(".inputForm").append(newDiv)
     showOption(counter)
+
 }
 
 
@@ -134,7 +142,9 @@ function showOption(counter) {
             // console.log($(this).attr("id"));
             // set choice to the id
             choice = $(this).attr("id");
-
+            
+          
+            // push choice to saved choices array
             savedArrayOfChoices.push(choice);
             // empty the input form
             $(".inputForm").empty();
@@ -156,9 +166,10 @@ function showOption(counter) {
         $(".newDiv").append(ansBtn);
 
     }
+
 }
 
-
+$("#startButton").on("click", onStartButtonClicked)
 
 function findSong() {
     // declaring all vars
@@ -286,4 +297,5 @@ function findSong() {
 
 
 $("#startButton").on("click", onStartButtonClicked);
+
 
