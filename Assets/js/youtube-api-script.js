@@ -1,15 +1,20 @@
-var APIKey = "AIzaSyAh_yC6AbxPwNhnzH3-KXS5qTdUeXk0aDA";
+// youtube apikey
+var APIKeyArr = [
+    "AIzaSyDgAYYwK8WgfhsMgVUgjY83ih48oYZeYsw",
+    "AIzaSyCRwjWzLpUR-YYjGj0vFxbD_5QWfST1FXQ",
+    "AIzaSyDT443X8rOkADMwDuoL5aGVva1y0sTx4jo",
+    // "AIzaSyDykkL0_WQwJ6uprmhzboabBlymByGjX-U",
+];
+var randomNumber = Math.floor(Math.random() * APIKeyArr.length);
 
 //Functions that call Youtube search API 
 function getVideo(searchQuery) {
-    console.log(searchQuery);
-    console.log(typeof (searchQuery));
 
     $.ajax({
         type: 'GET',
         url: 'https://www.googleapis.com/youtube/v3/search',
         data: {
-            key: APIKey,
+            key: APIKeyArr[randomNumber],
             q: searchQuery,
             part: 'snippet',
             maxResults: 1,
@@ -17,8 +22,6 @@ function getVideo(searchQuery) {
             videoEmbeddable: true,
         },
         success: function (data) {
-            console.log(data)
-            console.log("searhc q" + searchQuery)
             embedVideo(data)
         },
         error: function (response) {
@@ -30,11 +33,7 @@ function getVideo(searchQuery) {
 //Creating UI to display Music video
 function embedVideo(data) {
 
-    $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId)
-    console.log("vid id " + data.items[0].id.videoId);
-    console.log('https://www.youtube.com/embed/' + data.items[0].id.videoId)
-    $('h3').text(data.items[0].snippet.title)
-    $('.description').text(data.items[0].snippet.description)
+    $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId);
 }
 
 //getVideo();

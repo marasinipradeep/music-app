@@ -1,21 +1,16 @@
-var song;
-var artist;
-
+// musixapikey
+var musixApikey = "93475fc351db3cd74a4a74ee50699a7e";
 
 // finds song dependent to what the user selects in the quiz
 function findSong(savedArrayOfChoices) {
-    // declaring all vars
+    // declaring all vars according to savedArrayOfChoices 
     var pickCountry = savedArrayOfChoices[0];
     var pickArtist = savedArrayOfChoices[1];
     var pickRelatedArtist = savedArrayOfChoices[2];
     var pickAlbum = savedArrayOfChoices[3];
     var pickSong = savedArrayOfChoices[4];
-    // console.log(pickCountry, pickArtist, pickRelatedArtist, pickAlbum, pickSong);
 
-    // musixapikey
-    var musixApikey = "93475fc351db3cd74a4a74ee50699a7e";
-
-    // pushing country, returns artist
+    // pushing country into chartQuery, returns artist
     var chartQuery = `chart.artists.get?page=1&page_size=4&country=${pickCountry}`;
     var musixUrl = `https://api.musixmatch.com/ws/1.1/${chartQuery}&format=jsonp&callback=callback&quorum_factor=1&apikey=${musixApikey}`;
 
@@ -25,9 +20,6 @@ function findSong(savedArrayOfChoices) {
         dataType: "jsonp"
 
     }).then(function (music) {
-        // debug log
-        // console.log("artistName " + music.message.body.artist_list[pickArtist].artist.artist_name);
-        // console.log("artistID " + music.message.body.artist_list[pickArtist].artist.artist_id);
 
         // declaring artistId and artistname
         var artistId = music.message.body.artist_list[pickArtist].artist.artist_id;
@@ -55,10 +47,6 @@ function findSong(savedArrayOfChoices) {
             }
             // otherwise use the related artist
             else {
-                // debug log
-                // console.log("relatedartistName " + music.message.body.artist_list[pickRelatedArtist].artist.artist_name);
-                // console.log("relatedartistID " + music.message.body.artist_list[pickRelatedArtist].artist.artist_id);
-
                 relatedArtistId = music.message.body.artist_list[pickRelatedArtist].artist.artist_id;
                 relatedArtistName = music.message.body.artist_list[pickRelatedArtist].artist.artist_name;
 
@@ -74,10 +62,6 @@ function findSong(savedArrayOfChoices) {
                 dataType: "jsonp"
 
             }).then(function (music) {
-
-                // debug log
-                // console.log("albumName " + music.message.body.album_list[pickAlbum].album.album_name);
-                // console.log("albumID " + music.message.body.album_list[pickAlbum].album.album_id);
 
                 // declaring album id
                 var albumId = music.message.body.album_list[pickAlbum].album.album_id;
@@ -95,7 +79,7 @@ function findSong(savedArrayOfChoices) {
                     // declaring song name
                     var songName;
 
-                    // if statements depending on how big the album is, not perfect, but functions
+                    // if statements depending on the size of the album
                     if (music.message.body.track_list.length === pickSong) {
                         songName = music.message.body.track_list[pickSong].track.track_name;
 
@@ -114,8 +98,6 @@ function findSong(savedArrayOfChoices) {
 
                     // finds video with youtube api
                     getVideo(`${songName} ${relatedArtistName}`);
-
-                    // console.log(`${songName} by ${relatedArtistName}`);
 
                 });
             });
