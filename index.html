@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>music-app</title>
+    <title>Music Quiz</title>
 
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+
+    <!-- custom styling sheet -->
     <link rel="stylesheet" href="./Assets/css/style.css">
 </head>
 
@@ -17,42 +19,45 @@
     <main class="grid-container">
         <!-- Start of heading part which shows text and timer -->
         <div class="grid-x hide" id="header">
+            <!-- title -->
             <h2 class="cell small-6" id="appTitle">App title</h2>
+            <!-- date -->
             <h2 class="cell small-6" id="currentDay">App Subtitle</h2>
         </div>
 
         <!-- Inital playButton to start game  which gets hidden after cliked-->
         <div class="grid-x align-center-middle" id="initialPage">
             <p class="cell text-center" id="description">Your choice of music begins with start button</p>
-            <button type="button" class="button rounded large" id="startButton">
-                Start
-            </button>
+            <!-- start button -->
+            <button type="button" class="button rounded large" id="startButton">Start</button>
         </div>
 
         <!-- Start of Panel for series of questions all the questions and options will be dynamically appended here -->
         <div class="panel callout radius hide" style="height: 400px;margin-top: 20px;">
-            <form class="inputForm">
-            </form>
+            <!-- quiz form -->
+            <form class="inputForm"></form>
         </div>
 
         <!-- Start of iframe where youtube video will get appended -->
         <div class="flex-video hide grid-x align-center-middle">
+            <!-- youtube video -->
             <iframe src=""></iframe>
-            <h3>Video Title</h3>
-            <p class="description">Video Description
-            <p></p>
         </div>
     </main>
 
-
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <!-- moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
+    <!-- custom musix-api-script.js -->
     <script src="./Assets/js/musix-api-script.js"></script>
+    <!-- custom main script.js -->
     <script src="./Assets/js/script.js"></script>
+    <!-- custom youtube-api-script.js -->
     <script src="./Assets/js/youtube-api-script.js"></script>
 
 
