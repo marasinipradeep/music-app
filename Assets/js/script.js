@@ -101,7 +101,7 @@ function showOption(counter) {
                 $(".panel").addClass("hide")
                 $(".flex-video").removeClass("hide")
                 $(".flex-video").addClass("show")
-                getCountry(savedArrayOfChoices)
+                findSong(savedArrayOfChoices)
             }
             else {
                 counter++;
