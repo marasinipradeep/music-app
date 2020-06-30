@@ -10,77 +10,38 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="stylesheet" href="./Assets/css/style.css">
-
 </head>
 
 <body>
+    <!-- Start of Heading where App title and todays date is displayed -->
     <main class="grid-container">
         <!-- Start of heading part which shows text and timer -->
         <div class="grid-x hide" id="header">
             <h2 class="cell small-6" id="appTitle">App title</h2>
-            <h2 class="cell small-6" id="appSubTitle">App Subtitle</h2>
+            <h2 class="cell small-6" id="currentDay">App Subtitle</h2>
         </div>
 
-        <!-- Inital playButton to start game -->
+        <!-- Inital playButton to start game  which gets hidden after cliked-->
         <div class="grid-x align-center-middle" id="initialPage">
             <p class="cell text-center" id="description">Your choice of music begins with start button</p>
             <button type="button" class="button rounded large" id="startButton">
-                <!-- Screen readers will see "close" -->
-                <span class="show-for-sr">Start</span>
-                <!-- Visual users -->
                 Start
             </button>
         </div>
 
-
-          <div class="panel callout radius hide" style="height: 400px;margin-top: 20px;">
-        <form class="inputForm">
-            <!-- <legend>Select Country
-                <select>
-                    <option value="All">All</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Newzealand">New Zealand</option>
-                    <option value="China">China</option>
-                    <option value="Japan">Japan</option>
-                    <option value="India">India</option>
-
-                </select>
-            </legend>
-
-            <legend>Type here for any song :
-                <input type="text" placeholder="enter your text">
-            </legend>
-           
-                <div class="row">
-                    <fieldset class="small-6 columns">
-                        <legend>Your Favorite Type of Songs?</legend>
-
-                        <input type="radio" name="Type" value="Metal">
-                        <label for="metalType">Metal</label>
-
-                        <input type="radio" name="Type" value="Classic">
-                        <label for="classicType">Classic</label>
-                    </fieldset>
-
-                    <fieldset class="small-6 columns">
-                        <legend>Filter</legend>
-                        <input id="checkbox1" type="checkbox">
-                        <label for="checkbox1">popularity</label>
-
-                        <input id="checkbox2" type="checkbox">
-                        <label for="checkbox2">ratings</label>
-                    </fieldset>
-                </div> -->
-
-                <!-- <div class="input-group">
-                    <a class="input-group-button button" id="submitButton">Submit</a>
-                </div> -->
-        </form>
+        <!-- Start of Panel for series of questions all the questions and options will be dynamically appended here -->
+        <div class="panel callout radius hide" style="height: 400px;margin-top: 20px;">
+            <form class="inputForm">
+            </form>
         </div>
-        <!-- <div class="flex-video hide grid-x align-center-middle">
-            <iframe width="200" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY" id="musicVideo"></iframe>
-        </div> -->
-       
+
+        <!-- Start of iframe where youtube video will get appended -->
+        <div class="flex-video hide grid-x align-center-middle">
+            <iframe src=""></iframe>
+            <h3>Video Title</h3>
+            <p class="description">Video Description
+            <p></p>
+        </div>
     </main>
 
 
@@ -88,11 +49,12 @@
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
+    <script src="./Assets/js/musix-api-script.js"></script>
     <script src="./Assets/js/script.js"></script>
-    <!-- <script src="./Assets/js/musix-api-script.js"></script> -->
+    <script src="./Assets/js/youtube-api-script.js"></script>
+    
 
 </body>
-
 </html>
