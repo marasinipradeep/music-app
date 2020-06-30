@@ -80,7 +80,7 @@ function findSong(savedArrayOfChoices) {
                 // console.log("albumID " + music.message.body.album_list[pickAlbum].album.album_id);
 
                 // declaring album id
-                var albumId = music.message.body.album_list[pickAlbum].album.album_id
+                var albumId = music.message.body.album_list[pickAlbum].album.album_id;
 
                 // pushing albumID, returns song
                 var chartQuery = `album.tracks.get?album_id=${albumId}&page=1&page_size=4`;
@@ -114,6 +114,7 @@ function findSong(savedArrayOfChoices) {
 
                     // finds video with youtube api
                     getVideo(`${songName} ${relatedArtistName}`);
+
                     // console.log(`${songName} by ${relatedArtistName}`);
 
                 });
