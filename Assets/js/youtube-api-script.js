@@ -3,7 +3,7 @@ var APIKeyArr = [
     "AIzaSyDgAYYwK8WgfhsMgVUgjY83ih48oYZeYsw",
     "AIzaSyCRwjWzLpUR-YYjGj0vFxbD_5QWfST1FXQ",
     "AIzaSyDT443X8rOkADMwDuoL5aGVva1y0sTx4jo",
-    // "AIzaSyDykkL0_WQwJ6uprmhzboabBlymByGjX-U",
+    "AIzaSyDykkL0_WQwJ6uprmhzboabBlymByGjX-U",
 ];
 var randomNumber = Math.floor(Math.random() * APIKeyArr.length);
 
@@ -35,5 +35,3 @@ function embedVideo(data) {
 
     $('iframe').attr('src', 'https://www.youtube.com/embed/' + data.items[0].id.videoId);
 }
-
-//getVideo();

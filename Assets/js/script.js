@@ -126,10 +126,10 @@ function getGiphyImage(counter) {
                 // declare value as button value
                 var value = $(this).data("value");
                 savedArrayOfChoices.push(value);
-                console.log(...savedArrayOfChoices);
+                
 
                 // checking length of array
-                if (counter === (arrayOfQuestions[counter].Options.length - 1)) {
+                if (counter === (arrayOfQuestions[counter].Options.length )) {
                     // Foundation.css
                     $(".Panel").addClass("hide");
                     $(".end-screen").removeClass("hide");
