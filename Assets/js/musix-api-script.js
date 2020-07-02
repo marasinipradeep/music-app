@@ -94,14 +94,15 @@ function findSong(savedArrayOfChoices) {
                     }
                     else {
                         songName = music.message.body.track_list[0].track.track_name;
+
                     }
-
                     // finds video with youtube api
-                    getVideo(`${songName} ${relatedArtistName}`);
+                    // getVideo(`${songName} ${relatedArtistName}`);
 
+                    // sets the text of final-artist-song to the song and artist that is found
+                    $("#final-artist-song").text(`${songName} by ${relatedArtistName}`);
                 });
             });
-
         });
     });
 }
