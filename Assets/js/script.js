@@ -83,8 +83,7 @@ function showQuestion(counter) {
     // pushing newLegend and newFieldSet to newDiv and then pushing newDiv to inputForm
     $(".inputForm").append(newDiv.append(newLegend, newFieldSet));
 
-   
-    getGiphyImage(counter)
+    getGiphyImage(counter);
 }
 
 
@@ -104,48 +103,50 @@ function getGiphyImage(counter) {
             var values = arrayOfQuestions[counter].Values[i];
             var newRow = $("<div>").addClass("grid-x")
 
-            var newColumn = $("<p>")
+            var newColumn = $("<p>");
             newColumn.addClass("cell small-2");
 
-            var newButton = $("<button>")
+            var newButton = $("<button>");
             newButton.text(options).addClass("button  option cell small-8").attr("type", "button").data("value", values);
-            newRow.append(newColumn,newButton)
+            newRow.append(newColumn, newButton);
+
             // declaring figure and image
-            var newFigure = $("<figure>")
-            var newImage = $(`<img src="${response.results[0].media[0].gif.url}">`)
+            var newFigure = $("<figure>");
+            var newImage = $(`<img src="${response.results[0].media[0].gif.url}">`);
+
             //var newImage = $("<img>").attr("src",`${getGiphyImage()}`)
-            newFigure.append(newImage)
-            newButton.append(newFigure)
-            $(".newDiv").append(newRow)
+            newFigure.append(newImage);
+            newButton.append(newFigure);
+            $(".newDiv").append(newRow);
 
             // on click newButton
             newButton.on("click", function (event) {
                 event.preventDefault();
+
                 // declare value as button value
-                var value = $(this).data("value")
-                savedArrayOfChoices.push(value)
-                console.log(...savedArrayOfChoices)
+                var value = $(this).data("value");
+                savedArrayOfChoices.push(value);
+                console.log(...savedArrayOfChoices);
 
                 // checking length of array
                 if (counter === (arrayOfQuestions[counter].Options.length - 1)) {
                     // Foundation.css
                     $(".Panel").addClass("hide");
-                    $(".flex-video").removeClass("hide");
-                    $(".flex-video").addClass("show");
+                    $(".end-screen").removeClass("hide");
+                    $(".end-screen").addClass("show");
 
                     // link to musix-api-script Func findSong parsing savedArrayOfChoices
-                  //  findSong(savedArrayOfChoices);
+                    findSong(savedArrayOfChoices);
                 }
                 else {
                     counter++;
-                    $(".inputForm").empty()
-                    // show next question
-                    showQuestion(counter)
-                }
+                    $(".inputForm").empty();
 
+                    // show next question
+                    showQuestion(counter);
+                }
             })
         })
-
     };
 }
 

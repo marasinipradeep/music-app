@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Quiz</title>
-    
+
     <!-- Link for google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
@@ -31,6 +31,11 @@
 
         <!-- Inital playButton to start game  which gets hidden after cliked-->
         <section class="grid-x align-center-middle" id="initialPage">
+            <!-- title image -->
+            <img id="title-img"
+                src="https://img1.wsimg.com/isteam/ip/22823eb8-4bbd-4dee-8cc1-a101a91c642d/ipod-campaign-mbaknol-e1422018366635.gif"
+                alt="4 people listening to ipod">
+            <!-- description text -->
             <p class="cell text-center" id="description">Your choice of music begins with start button</p>
             <!-- start button -->
             <button type="button" class="button rounded large" id="startButton">Start</button>
@@ -43,10 +48,17 @@
         </section>
 
         <!-- Start of iframe where youtube video will get appended -->
-        <section class="flex-video hide grid-x align-center-middle">
+        <div class="end-screen hide grid-x align-center-middle">
+            <p>According to your answers to the questions, we think you should listen to:
+                <br>
+                <span id="final-artist-song"></span>
+            </p>
+        </div>
+        <div class="end-screen flex-video hide grid-x align-center-middle">
             <!-- youtube video -->
             <iframe src=""></iframe>
-        </section>
+        </div>
+
 
 
 

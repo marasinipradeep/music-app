@@ -19,7 +19,13 @@ body{background:#ADD8E6;font-size: 30px;}
 }
 
 /* marging for quiz and youtube video */
-.Panel,.flex-video{margin-top: 20px;}
+.Panel,.end-screen{margin-top: 20px;}
+
+/* styling for title image */
+#title-img{
+    width: 50%;
+    height: auto;
+}
 
 /* Designing of quiz questions */
   legend{
