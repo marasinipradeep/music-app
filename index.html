@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Quiz</title>
+    
+    <!-- Link for google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
 
     <!-- Compressed CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
@@ -18,31 +22,34 @@
     <!-- Start of Heading where App title and todays date is displayed -->
     <main class="grid-container">
         <!-- Start of heading part which shows text and timer -->
-        <div class="grid-x hide" id="header">
+        <header class="grid-x hide" id="header">
             <!-- title -->
             <h2 class="cell small-6" id="appTitle">App title</h2>
             <!-- date -->
             <h2 class="cell small-6" id="currentDay">App Subtitle</h2>
-        </div>
+        </header>
 
         <!-- Inital playButton to start game  which gets hidden after cliked-->
-        <div class="grid-x align-center-middle" id="initialPage">
+        <section class="grid-x align-center-middle" id="initialPage">
             <p class="cell text-center" id="description">Your choice of music begins with start button</p>
             <!-- start button -->
             <button type="button" class="button rounded large" id="startButton">Start</button>
-        </div>
+        </section>
 
         <!-- Start of Panel for series of questions all the questions and options will be dynamically appended here -->
-        <div class="panel callout radius hide" style="height: 400px;margin-top: 20px;">
+        <section class="Panel callout radius hide">
             <!-- quiz form -->
             <form class="inputForm"></form>
-        </div>
+        </section>
 
         <!-- Start of iframe where youtube video will get appended -->
-        <div class="flex-video hide grid-x align-center-middle">
+        <section class="flex-video hide grid-x align-center-middle">
             <!-- youtube video -->
             <iframe src=""></iframe>
-        </div>
+        </section>
+
+
+
     </main>
 
     <!-- jquery -->

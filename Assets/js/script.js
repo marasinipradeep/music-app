@@ -63,8 +63,11 @@ function onStartButtonClicked() {
 
     $("#initialPage").addClass("hide");
 
-    $(".panel").removeClass("hide");
-    $(".panel").addClass("show");
+    $(".Panel").removeClass("hide");
+    $(".Panel").addClass("show");
+
+    $("footer").removeClass("hide");
+    $("footer").addClass("show");
 
     musicAppHeading();
     showQuestion(counter);
@@ -73,65 +76,77 @@ function onStartButtonClicked() {
 //Functions to create series of questions.
 function showQuestion(counter) {
     // creating new div, fieldset, legend
-    var newDiv = $("<div>").addClass("row");
-    var newFieldSet = $("<fieldset>").addClass("small-6 columns newDiv");
-    var newLegend = $("<legend>").text(arrayOfQuestions[counter].Question);
+    var newDiv = $("<div>").addClass("row primary").attr("id", "content");
+    var newFieldSet = $("<fieldset>").addClass("small-6 columns newDiv").attr("id", "");
+    var newLegend = $("<legend>").text(arrayOfQuestions[counter].Question).attr("id", "");
 
     // pushing newLegend and newFieldSet to newDiv and then pushing newDiv to inputForm
     $(".inputForm").append(newDiv.append(newLegend, newFieldSet));
 
-    showOption(counter);
+   
+    getGiphyImage(counter)
 }
 
-//All the options related to questions are shown by following functions.
-function showOption(counter) {
 
+//All the options related to questions are shown by following functions.
+function getGiphyImage(counter) {
     // for loop, looping throught the length of arrayOfQuestions.Options
     for (let i = 0; i < arrayOfQuestions[counter].Options.length; i++) {
-        // declaring options, values and newButton
-        var options = arrayOfQuestions[counter].Options[i];
-        var values = arrayOfQuestions[counter].Values[i];
-        var newButton = $("<button>");
+        //var musicStyle = ["music-guitar", "classic-music", "music-metal", "piano-music"];
+        queryURL = "https://api.tenor.com/v1/search?q=" + arrayOfQuestions[counter].Options[i] + "&key=ZFKX4SZGA5FO&limit=1";
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+            dataType: "json",
+        }).then(function (response) {
+            // declaring options, values,newrow and newButton
+            var options = arrayOfQuestions[counter].Options[i];
+            var values = arrayOfQuestions[counter].Values[i];
+            var newRow = $("<div>").addClass("grid-x")
 
-        // setting text of button to options, adding class of button success and options
-        newButton.text(options).addClass("button success").attr("type", "button").data("value", values);
+            var newColumn = $("<p>")
+            newColumn.addClass("cell small-2");
 
-        // adding newButton to newDiv
-        $(".newDiv").append(newButton);
+            var newButton = $("<button>")
+            newButton.text(options).addClass("button  option cell small-8").attr("type", "button").data("value", values);
+            newRow.append(newColumn,newButton)
+            // declaring figure and image
+            var newFigure = $("<figure>")
+            var newImage = $(`<img src="${response.results[0].media[0].gif.url}">`)
+            //var newImage = $("<img>").attr("src",`${getGiphyImage()}`)
+            newFigure.append(newImage)
+            newButton.append(newFigure)
+            $(".newDiv").append(newRow)
 
-        // on click newButton
-        newButton.on("click", function (event) {
-            // prevent reload
-            event.preventDefault();
+            // on click newButton
+            newButton.on("click", function (event) {
+                event.preventDefault();
+                // declare value as button value
+                var value = $(this).data("value")
+                savedArrayOfChoices.push(value)
+                console.log(...savedArrayOfChoices)
 
-            // declare value as button value
-            var value = $(this).data("value");
+                // checking length of array
+                if (counter === (arrayOfQuestions[counter].Options.length - 1)) {
+                    // Foundation.css
+                    $(".Panel").addClass("hide");
+                    $(".flex-video").removeClass("hide");
+                    $(".flex-video").addClass("show");
 
-            // add value to savedArrayOfChoices
-            savedArrayOfChoices.push(value);
+                    // link to musix-api-script Func findSong parsing savedArrayOfChoices
+                  //  findSong(savedArrayOfChoices);
+                }
+                else {
+                    counter++;
+                    $(".inputForm").empty()
+                    // show next question
+                    showQuestion(counter)
+                }
 
-            // condition
-            if (counter === (arrayOfQuestions[counter].Options.length - 1)) {
-                // Foundation.css
-                $(".panel").addClass("hide");
-                $(".flex-video").removeClass("hide");
-                $(".flex-video").addClass("show");
-
-                // link to musix-api-script Func findSong parsing savedArrayOfChoices
-                findSong(savedArrayOfChoices);
-            }
-            else {
-                counter++;
-
-                $(".inputForm").empty();
-
-                // show next question
-                showQuestion(counter);
-            }
-
+            })
         })
 
-    }
+    };
 }
 
 //Event handler - start quiz
