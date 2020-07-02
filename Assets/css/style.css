@@ -27,6 +27,13 @@ body{background:#ADD8E6;font-size: 30px;}
     height: auto;
 }
 
+/* styling for final text */
+#final-artist-song{
+    color: #F74D79;
+    font-weight: bold;
+    font-style: italic;
+}
+
 /* Designing of quiz questions */
   legend{
     text-align: center;
