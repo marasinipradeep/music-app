@@ -44,4 +44,4 @@ Github - https://github.com/
 
 ![demo of music-app](Assets/img/MusicQuizDemo.gif)
 
-Project 1 by Pradeep Marasini, Declan Toohey, Jeff Miao and Ben Hilliard.
+Project 1 By Ben Hilliard, Declan Toohey, Jeff Miao, Pradeep Marasini
