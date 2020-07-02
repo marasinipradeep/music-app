@@ -64,7 +64,23 @@ function findSong(savedArrayOfChoices) {
             }).then(function (music) {
 
                 // declaring album id
-                var albumId = music.message.body.album_list[pickAlbum].album.album_id;
+                var albumId
+
+                // if statements for if the artist doesn't have 4 albums
+                if (music.message.body.album_list.length === pickSong) {
+                    albumId = music.message.body.album_list[pickAlbum].album.album_id;
+                }
+                else if (music.message.body.album_list.length === 3) {
+                    albumId = music.message.body.album_list[2].album.album_id;
+
+                }
+                else if (music.message.body.album_list.length === 2) {
+                    albumId = music.message.body.album_list[1].album.album_id;
+                }
+                else {
+                    albumId = music.message.body.album_list[0].album.album_id;
+
+                }
 
                 // pushing albumID, returns song
                 var chartQuery = `album.tracks.get?album_id=${albumId}&page=1&page_size=4`;
@@ -79,7 +95,7 @@ function findSong(savedArrayOfChoices) {
                     // declaring song name
                     var songName;
 
-                    // if statements depending on the size of the album
+                    // if statements for if the album doesn't have 4 songs
                     if (music.message.body.track_list.length === pickSong) {
                         songName = music.message.body.track_list[pickSong].track.track_name;
 
