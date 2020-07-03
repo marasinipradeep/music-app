@@ -10,35 +10,35 @@ function musicAppHeading() {
 // Creating series of questions and options as an objects.
 var q1 = {
     Question: "What is your favourite pizza topping?",
-    Options: ["Pepperoni", "Pineapple", "Ham", "Chicken"],
+    Options: [["Pepperoni","16773994"], ["Pineapple","7341867"], ["Ham","11375339"], ["Chicken","15625891"]],
     Values: ["AUS", "USA", "UK", "CA"]
 
 };
 
 var q2 = {
     Question: "What is your favourite movie?",
-    Options: ["The Notebook", "Shawshank Redemption", "Anchorman", "Frozen"],
+    Options: [["The Notebook","12226514"], ["Shawshank Redemption","15182605"], ["Anchorman","4630948"], ["Frozen","4626444"]],
     Values: [0, 1, 2, 3]
 
 };
 
 var q3 = {
     Question: "What closest matches your personality?",
-    Options: ["Joker", "Thinker", "Leader", "Lover"],
+    Options: [["Joker","15985498"], ["Thinker","5111292"], ["Leader","11208171"], ["Lover","12178533"]],
     Values: [0, 1, 2, 3]
 
 };
 
 var q4 = {
     Question: "What’s the first thing you do if you won $10m dollars?",
-    Options: ["Buy a Mansion", "Donate to Charity", "Travel the World ", "Purchase a Business"],
+    Options: [["Buy a Mansion","11882034"], ["Donate to Charity","11161179"], ["Travel the World ","3939041"], ["Purchase a Business","7822852"]],
     Values: [0, 1, 2, 3]
 
 };
 
 var q5 = {
     Question: "What is your favourite sport?",
-    Options: ["Soccer", "Cricket", "Tennis", "Football"],
+    Options: [["Soccer","7755651"], ["Cricket","16441073"], ["Tennis","5632634"], ["Football","3535687"]],
     Values: [0, 1, 2, 3]
 
 };
@@ -92,14 +92,14 @@ function getGiphyImage(counter) {
     // for loop, looping throught the length of arrayOfQuestions.Options
     for (let i = 0; i < arrayOfQuestions[counter].Options.length; i++) {
         //var musicStyle = ["music-guitar", "classic-music", "music-metal", "piano-music"];
-        queryURL = "https://api.tenor.com/v1/search?q=" + arrayOfQuestions[counter].Options[i] + "&key=ZFKX4SZGA5FO&limit=1";
+        queryURL = "https://api.tenor.com/v1/gifs?ids=" + arrayOfQuestions[counter].Options[i][1] + "&key=ZFKX4SZGA5FO&limit=1";
         $.ajax({
             url: queryURL,
             method: "GET",
             dataType: "json",
         }).then(function (response) {
             // declaring options, values,newrow and newButton
-            var options = arrayOfQuestions[counter].Options[i];
+            var options = arrayOfQuestions[counter].Options[i][0];
             var values = arrayOfQuestions[counter].Values[i];
             var newRow = $("<div>").addClass("grid-x")
 
@@ -113,6 +113,7 @@ function getGiphyImage(counter) {
             // declaring figure and image
             var newFigure = $("<figure>");
             var newImage = $(`<img src="${response.results[0].media[0].gif.url}">`);
+            newImage.width(400).height(200);
 
             //var newImage = $("<img>").attr("src",`${getGiphyImage()}`)
             newFigure.append(newImage);
